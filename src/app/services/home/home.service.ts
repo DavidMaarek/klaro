@@ -13,6 +13,6 @@ export class HomeService {
   ) { }
 
   public getCards(): Observable<HomeCard[]> {
-    return this.http.get<HomeCard[]>('https://64f98ead4098a7f2fc149a34.mockapi.io/api/homepage-cardshttps://64f98ead4098a7f2fc149a34.mockapi.io/api/homepage-cards')
+    return this.http.get<HomeCard[]>('https://64f98ead4098a7f2fc149a34.mockapi.io/api/homepage-cards');
   }
 }

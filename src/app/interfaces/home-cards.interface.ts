@@ -1,7 +1,7 @@
 export interface HomeCard {
-  title: string;
-  illustrationSrc: string;
   buttonLabel: string;
-  type: string;
   id: string;
+  illustrationSrc: string;
+  title: string;
+  type: 'primary' | 'secondary';
 }
