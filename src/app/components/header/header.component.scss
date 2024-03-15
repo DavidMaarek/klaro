@@ -1,0 +1,25 @@
+header {
+  background-color: var(--color-primary-blue);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 3px 3px 4px 2px #b2b8b9;
+  padding: 18px;
+
+  @media all and (min-width: 500px) {
+    text-align: left;
+    border-radius: 0;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media all and (min-width: 500px) {
+      justify-content: flex-start;
+    }
+
+    img {
+      height: 24px;
+    }
+  }
+}

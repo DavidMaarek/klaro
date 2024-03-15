@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "reset.css";
+
+:root {
+  --color-primary-blue: #178af0;
+}
+
+.kl-container {
+  max-width: 864px;
+  margin: auto;
+}
