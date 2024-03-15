@@ -2,6 +2,15 @@
 
 :root {
   --color-primary-blue: #178af0;
+  --color-grey-100: #3e4e50;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-grey-100);
 }
 
 .kl-container {

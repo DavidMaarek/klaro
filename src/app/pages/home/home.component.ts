@@ -15,6 +15,7 @@ import { HomeCard } from "../../interfaces/home-cards.interface";
 export class HomeComponent implements OnInit {
   public primaryCards: HomeCard[] = [];
   public secondaryCards: HomeCard[] = [];
+  public errorApi: boolean = false;
 
   constructor(
     private homeService: HomeService,
@@ -25,6 +26,9 @@ export class HomeComponent implements OnInit {
       next: (response: HomeCard[]): void => {
         this.primaryCards = response.filter((card: HomeCard) => card.type == "primary");
         this.secondaryCards = response.filter((card: HomeCard) => card.type == "secondary");
+      },
+      error: (error) => {
+        this.errorApi = true;
       }
     })
   }
