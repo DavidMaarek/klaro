@@ -5,7 +5,7 @@
     <h2>Bonjour Clément, voici ce que vous pouvez faire aujourd'hui! </h2>
 
     <div class="cards">
-      @for (primaryCard of primaryCards;track primaryCard.id) {
+      @for (primaryCard of primaryCards; track primaryCard.id) {
         <app-home-card [card]="primaryCard"></app-home-card>
       }
     </div>
@@ -17,11 +17,27 @@
     <h2>Les aides disponibles</h2>
   </div>
 
-  <ul class="kl-carousel kl-container">
-    @for (secondaryCard of secondaryCards;track secondaryCard.id) {
-      <li>
-        <app-home-card [card]="secondaryCard"></app-home-card>
-      </li>
+  <div class="kl-carousel">
+    @if (displayLeftArrow) {
+      <div (click)="scroll('left')" class="kl-carousel-arrow-left">
+        <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.5 11L5.5 6L0.5 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     }
-  </ul>
+    <ul class="kl-container" (scroll)="updateCarousel()" #klCarousel>
+      @for (secondaryCard of secondaryCards; track secondaryCard.id) {
+        <li #klCarouselCard>
+          <app-home-card [card]="secondaryCard"></app-home-card>
+        </li>
+      }
+    </ul>
+    @if (displayRightArrow) {
+      <div (click)="scroll('right')" class="kl-carousel-arrow-right">
+        <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.5 11L5.5 6L0.5 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    }
+  </div>
 </div>

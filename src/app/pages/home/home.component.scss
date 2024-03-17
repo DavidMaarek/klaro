@@ -22,22 +22,51 @@ h2 {
     margin-bottom: 16px;
   }
 
-  .kl-carousel {
-    width: 100%;
-    overflow-y: scroll;
-    display: flex;
-    gap: 16px;
-    scrollbar-width: none;  /* Firefox */
+  .kl-carousel{
+    position: relative;
 
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    &::-webkit-scrollbar {
-      display: none;
+    [class^='kl-carousel-arrow'] {
+      background-color: var(--color-primary-blue);
+      border-radius: 50px;
+      box-shadow: 2px 2px 4px 1px #d8dcdc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 32px;
+      width: 32px;
+
+      &.kl-carousel-arrow-left {
+        transform: translateY(-50%) rotate(180deg);
+        left: 10px;
+      }
+
+      &.kl-carousel-arrow-right {
+        right: 10px;
+      }
+
+      svg {
+        height: 10px;
+      }
     }
 
+    ul {
+      overflow-y: scroll;
+      display: flex;
+      gap: 16px;
+      scrollbar-width: none;  /* Firefox */
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       li {
         width: calc((100% / 3) - ((16px * 2) / 3));
         min-width: 150px;
       }
+    }
   }
 }
