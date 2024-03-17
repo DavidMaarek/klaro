@@ -12,5 +12,5 @@ import { RouterLink } from "@angular/router";
   styleUrl: './home-card.component.scss'
 })
 export class HomeCardComponent {
-  @Input() card: HomeCard;
+  @Input() card!: HomeCard;
 }
