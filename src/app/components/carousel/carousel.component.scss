@@ -1,5 +1,25 @@
 .kl-carousel{
   position: relative;
+  margin-bottom: 50px;
+
+  &:before,
+  &:after {
+    background: linear-gradient(270deg, #F3F9FE 0%, rgba(255, 255, 255, 0) 100%);
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 20px;
+  }
+
+  &:before {
+    transform: rotate(180deg);
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
 
   [class^='kl-carousel-arrow'] {
     background-color: var(--color-primary-blue);
@@ -13,9 +33,10 @@
     transform: translateY(-50%);
     height: 32px;
     width: 32px;
+    z-index: 1;
 
     &.kl-carousel-arrow-left {
-      left: 10px;
+      left: 4px;
 
       svg {
         transform: rotate(180deg);
@@ -23,7 +44,7 @@
     }
 
     &.kl-carousel-arrow-right {
-      right: 10px;
+      right: 4px;
     }
 
     svg {

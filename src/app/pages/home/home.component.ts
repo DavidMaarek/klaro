@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { HomeService } from "../../services/home/home.service";
 import { HomeCard } from "../../interfaces/home-cards.interface";
@@ -17,6 +17,7 @@ import { CarouselComponent } from "../../components/carousel/carousel.component"
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  @ViewChild(CarouselComponent) carouselComponent!: CarouselComponent;
   public primaryCards: HomeCard[] = [];
   public secondaryCards: HomeCard[] = [];
   public errorApi: boolean = false;
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit {
       next: (response: HomeCard[]): void => {
         this.primaryCards = response.filter((card: HomeCard) => card.type == "primary");
         this.secondaryCards = response.filter((card: HomeCard) => card.type == "secondary");
+
+        setTimeout(() => {
+          this.carouselComponent.updateCarousel();
+        }, 200)
       },
       error: (error) => {
         this.errorApi = true;
