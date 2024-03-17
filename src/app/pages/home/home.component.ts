@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { HomeService } from "../../services/home/home.service";
 import { HomeCard } from "../../interfaces/home-cards.interface";
+import { HomeCardComponent } from "../../components/home-card/home-card.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent
+    HeaderComponent,
+    HomeCardComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

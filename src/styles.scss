@@ -3,17 +3,31 @@
 :root {
   --color-primary-blue: #178af0;
   --color-grey-100: #3e4e50;
+  --max-width-container: 880px;
 }
 
 body {
+  background-color: #E8F3FE;
+  color: var(--color-grey-100);
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  color: var(--color-grey-100);
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .kl-container {
-  max-width: 864px;
+  max-width: var(--max-width-container);
+  padding: 0 16px;
   margin: auto;
+}
+
+h2,
+h3 {
+  font-weight: 700;
+}
+
+a {
+  color: var(--color-primary-blue);
 }

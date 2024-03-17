@@ -1,7 +1,27 @@
 <app-header></app-header>
 
 <div class="kl-container">
-  <h2>Bonjour Clément, voici ce que vous pouvez faire aujourd'hui! </h2>
+  <div class="primary-container">
+    <h2>Bonjour Clément, voici ce que vous pouvez faire aujourd'hui! </h2>
 
-  <h2>Les aides disponibles</h2>
+    <div class="cards">
+      @for (primaryCard of primaryCards;track primaryCard.id) {
+        <app-home-card [card]="primaryCard"></app-home-card>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="secondary-container">
+  <div class="kl-container">
+    <h2>Les aides disponibles</h2>
+  </div>
+
+  <ul class="kl-carousel kl-container">
+    @for (secondaryCard of secondaryCards;track secondaryCard.id) {
+      <li>
+        <app-home-card [card]="secondaryCard"></app-home-card>
+      </li>
+    }
+  </ul>
 </div>
