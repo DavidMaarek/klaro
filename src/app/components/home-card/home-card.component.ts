@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { HomeCard } from "../../interfaces/home-cards.interface";
+import { HomeCard } from "@interfaces/home-cards.interface";
 import { RouterLink } from "@angular/router";
 
 @Component({

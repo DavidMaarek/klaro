@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselComponent } from './carousel.component';
+import { CarouselComponent } from '@components/carousel/carousel.component';
 
 describe('CarouselComponent', () => {
   let component: CarouselComponent;
@@ -11,7 +11,7 @@ describe('CarouselComponent', () => {
       imports: [CarouselComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(CarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

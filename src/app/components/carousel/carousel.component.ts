@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
-import { HomeCardComponent } from "../home-card/home-card.component";
-import { HomeCard } from "../../interfaces/home-cards.interface";
+import { HomeCardComponent } from "@components/home-card/home-card.component";
+import { HomeCard } from "@interfaces/home-cards.interface";
 
 @Component({
   selector: 'app-carousel',
@@ -17,7 +17,6 @@ export class CarouselComponent {
   @ViewChild('klCarouselCard') public klCarouselCard!: ElementRef<HTMLElement>;
   public displayLeftArrow: boolean = false
   public displayRightArrow: boolean = false
-
 
   @HostListener('window:resize', [''])
   public updateCarousel(): void {

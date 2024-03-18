@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HeaderComponent } from "../../components/header/header.component";
-import { HomeService } from "../../services/home/home.service";
-import { HomeCard, HomeCardType } from "../../interfaces/home-cards.interface";
-import { HomeCardComponent } from "../../components/home-card/home-card.component";
-import { CarouselComponent } from "../../components/carousel/carousel.component";
+import { HeaderComponent } from "@components/header/header.component";
+import { HomeService } from "@services/home/home.service";
+import { HomeCard, HomeCardType } from "@interfaces/home-cards.interface";
+import { HomeCardComponent } from "@components/home-card/home-card.component";
+import { CarouselComponent } from "@components/carousel/carousel.component";
 
 @Component({
   selector: 'app-home',

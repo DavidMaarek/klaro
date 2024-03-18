@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HomeService } from './home.service';
+import { HomeService } from '@services/home/home.service';
 import { HttpClientModule } from "@angular/common/http";
 
 describe('HomeService', () => {
