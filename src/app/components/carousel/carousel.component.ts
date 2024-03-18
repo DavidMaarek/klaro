@@ -20,6 +20,7 @@ export class CarouselComponent {
 
   @HostListener('window:resize', [''])
   public updateCarousel(): void {
+    if (!this.klCarousel) return;
     const klCarouselNE: HTMLUListElement = this.klCarousel.nativeElement;
     const scrollLeft: number = klCarouselNE.scrollLeft;
     const scrollWidth: number = klCarouselNE.scrollWidth;
@@ -42,6 +43,7 @@ export class CarouselComponent {
   }
 
   public scroll(direction: 'left' | 'right'): void {
+    if (!this.klCarousel || !this.klCarouselCard) return;
     const scrollChange: number = direction === 'left' ? -this.klCarouselCard.nativeElement.offsetWidth : this.klCarouselCard.nativeElement.offsetWidth;
     this.klCarousel.nativeElement.scroll({
       left: this.klCarousel.nativeElement.scrollLeft + scrollChange,
