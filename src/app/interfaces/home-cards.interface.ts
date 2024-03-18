@@ -3,5 +3,10 @@ export interface HomeCard {
   id: string;
   illustrationSrc: string;
   title: string;
-  type: 'primary' | 'secondary';
+  type: HomeCardType;
+}
+
+export enum HomeCardType {
+  Primary = 'primary',
+  Secondary = 'secondary',
 }
