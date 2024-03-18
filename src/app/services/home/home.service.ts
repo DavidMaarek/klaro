@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { HomeCard } from "../../interfaces/home-cards.interface";
 import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class HomeService {
   ) { }
 
   public getCards(): Observable<HomeCard[]> {
-    return this.http.get<HomeCard[]>('https://64f98ead4098a7f2fc149a34.mockapi.io/api/homepage-cards');
+    return this.http.get<HomeCard[]>(`${environment.apiDomain}/homepage-cards`);
   }
 }
