@@ -1,4 +1,4 @@
-name: Build & Push
+name: Build & Deploy
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 
 env:
   IMAGE_NAME: ghcr.io/davidmaarek/klaro
+  SERVICE_NAME: vps_klaro-davidmaarek-fr
 
 jobs:
   build:
@@ -47,3 +48,26 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy:
+    # Met à jour le service Swarm en pointant sur le SHA de ce commit.
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # Le short SHA doit être calculé dans le runner GHA (pas dans le SSH
+      # script où GITHUB_SHA n'existe pas).
+      - name: Compute short SHA
+        id: vars
+        run: echo "short_sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: githubactions
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            set -e
+            docker service update \
+              --image ${{ env.IMAGE_NAME }}:sha-${{ steps.vars.outputs.short_sha }} \
+              --with-registry-auth \
+              ${{ env.SERVICE_NAME }}
